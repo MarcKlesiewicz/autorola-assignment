@@ -7,18 +7,22 @@ import { HomeComponent } from './home/home.component';
 import { QuickSearchFilterComponent } from './quick-search-filter/quick-search-filter.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSelectModule }  from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import { AuctionsComponent } from './auctions/auctions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    QuickSearchFilterComponent
+    QuickSearchFilterComponent,
+    AuctionsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
