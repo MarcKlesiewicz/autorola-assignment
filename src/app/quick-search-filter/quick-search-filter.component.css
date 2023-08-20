@@ -15,3 +15,18 @@ body {
 .filter-item {
     margin: 10px;
 }
+
+h1{
+    color: white;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300;
+    padding: 50px;
+}
+
+
