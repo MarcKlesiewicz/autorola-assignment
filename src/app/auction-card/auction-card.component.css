@@ -6,7 +6,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex-direction: column;
     font-size: 12px;
-    /* Set the font size to 16px */
+    min-width: 992px;
 }
 
 .card-header {
@@ -14,17 +14,20 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 
 .card-header h3 {
     margin: 0;
     font-size: 12px;
-    /* Set the header font size to 1.25rem (20px) */
+    padding: 8px;
+    flex: 1;
 }
 
 .card-header img {
     max-width: 100px;
     max-height: 100px;
+    padding: 8px;
 }
 
 .card-details {
@@ -33,18 +36,21 @@
 }
 
 .card-details p {
-    margin: 0;
+    margin: 8px 0;
+    padding: 8px 0;
 }
 
 .country-info {
     display: flex;
     align-items: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .country-info img {
     max-width: 24px;
-    /* Set the width of the flag image */
     max-height: 16px;
-    /* Set the height of the flag image */
     margin-right: 8px;
+    margin-left: 8px;
+    /* Add margin to the left */
 }

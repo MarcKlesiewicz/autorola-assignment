@@ -5,12 +5,13 @@
         <ng-container *ngIf="auction">
             <div class="country-info">
                 <img *ngIf="auction.countryCode" [src]="'assets/flags/' + auction.countryCode + '.gif'" alt="Country Flag">
-                <p>Country Code: {{ auction.countryCode }}</p>
+                <p>{{ auction.countryCode }}</p>
             </div>
         </ng-container>
-        
-        <p>Number of Cars: {{ auction?.numberOfCars }}</p>
-        <p>Time Formatted: {{ auction?.timeFormatted }}</p>
+        <div style="width: 16px;"></div>
+        <p>Cars: {{ auction?.numberOfCars }}</p>
+        <div style="width: 16px;"></div>
+        <p>Time: {{ auction?.timeFormatted }}</p>
     </div>
     
 </div>
