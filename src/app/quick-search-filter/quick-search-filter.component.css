@@ -1,0 +1,17 @@
+body {
+    align-items: center;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filter-row {
+    display: flex;
+    justify-content: center;
+
+}
+
+.filter-item {
+    margin: 10px;
+}
