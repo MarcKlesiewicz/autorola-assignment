@@ -1,0 +1,824 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
+
+html {
+    font: 400 16px/1.4em "Open Sans", arial, sans-serif;
+}
+
+body {
+    font: 400 16px/1.4em "Open Sans", arial, sans-serif;
+    color: #333;
+    overflow-x: hidden;
+    background-color: #f4f4f4;
+}
+
+textarea,
+select {
+    font: 400 16px/1.4em "Open Sans", arial, sans-serif;
+    border: 1px solid #ccc;
+}
+
+.container {
+    max-width: 992px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.small {
+    line-height: 1.3em;
+}
+
+/* ------------------------------- Header ----------------------------------- */
+
+header .submenu {
+    position: fixed;
+    top: 63px;
+    z-index: 1000;
+    background-color: #cc0000;
+    box-shadow: 0 2px 4px rgba(52, 58, 64, 0.1);
+}
+
+header nav {
+    z-index: 1030;
+    box-shadow: 0 2px 4px rgba(52, 58, 64, 0.1);
+}
+
+header.scrollShrink nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+header.scrollShrink .scrollShrinkHide {
+    display: none;
+}
+
+header.scrollShrink .scrollShrinkShow {
+    display: block !important;
+}
+
+
+
+.navbar {
+    background-color: #fff;
+    padding: 0.8rem;
+}
+
+.navbar .logo {
+    max-width: 184px;
+    max-height: 40px;
+    margin: 0 2rem 0 0.2rem;
+}
+
+.navbar a,
+.navbar a:hover,
+.navbar a:focus,
+.navbar a:active,
+.navbar a:visited {
+    color: inherit;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        max-height: calc(90vh - 72px) !important;
+        overflow-y: auto;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* IE 10+ */
+    }
+
+    .navbar-collapse::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+        /* Chrome/Safari/Webkit */
+    }
+
+    .navbar .nav-item .dropdown-menu {
+        border: none;
+    }
+}
+
+.navbar-nav .nav-item i,
+.dropdown-item i {
+    width: 22px;
+}
+
+.dropdown-toggle::after {
+    border: none;
+    font: 900 20px/1 "Font Awesome 5 Free";
+    content: "\f107";
+    vertical-align: -2px;
+    margin-left: 0.2em;
+}
+
+.dropdown-toggle[aria-expanded="true"]:after {
+    -webkit-transform: scaleY(-1);
+    transform: scaleY(-1);
+}
+
+.dropdown-toggle:after {
+    transition: 0.5s;
+}
+
+/* ------ desktop view ------ */
+
+@media all and (min-width: 768px) {
+    .navbar .nav-item .dropdown-menu {
+        display: none;
+    }
+
+    .navbar .nav-item .dropdown-toggle:after {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        display: block;
+    }
+
+    .navbar .nav-item:hover .dropdown-toggle:after {
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+    }
+}
+
+/* ------------------------------- Wrapper ----------------------------------- */
+
+#page-wrapper-01 {
+    padding-top: 63px;
+    /* vertical offset from <header> */
+}
+
+#page-wrapper-02 {
+    padding-top: 100px;
+    /* 'My favorites' list - vertical offset from <header> */
+}
+
+#page-wrapper-03.scrollOffset {
+    padding-top: 225px;
+    /* 'Show car' page - vertical offset from <header> */
+}
+
+/* ------------------------------- Sidebar ----------------------------------- */
+
+#sidebar-wrapper {
+    z-index: 700;
+    position: fixed;
+    left: 300px;
+    width: 0;
+    height: 100%;
+    margin-left: -300px;
+    background: #eee;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+#sidebar-wrapper::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    /* Chrome/Safari/Webkit */
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 300px;
+    -webkit-box-shadow: -1px 0px 10px 1px rgba(0, 0, 0, 0.53);
+    -moz-box-shadow: -1px 0px 10px 1px rgba(0, 0, 0, 0.53);
+    box-shadow: -1px 0px 10px 1px rgba(0, 0, 0, 0.53);
+}
+
+.sidebar-toggle-close {
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.sidebar-toggle-close:hover {
+    opacity: 0.4;
+}
+
+/* --- Apply --- */
+
+#apply {
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed;
+    left: 300px;
+    bottom: 0;
+    width: 0;
+    margin-left: -300px;
+    background: #fff;
+    box-shadow: 0 -2px 4px rgba(52, 58, 64, 0.1);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #apply {
+    width: 300px;
+}
+
+/* --- Accordion --- */
+
+#sidebar-accordion .card-header {
+    background: none;
+    cursor: pointer;
+}
+
+#sidebar-accordion .card-header .far {
+    float: right;
+    font-size: 1.2em;
+    -webkit-transition: 0.3s transform ease-in-out;
+    -o-transition: 0.3s transform ease-in-out;
+    transition: 0.3s transform ease-in-out;
+}
+
+#sidebar-accordion .card-header.collapsed {
+    background-color: #f4f4f4;
+}
+
+#sidebar-accordion .card-header.collapsed .far {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#sidebar-accordion .card-body {
+    padding: 0 0 20px 10px;
+}
+
+#sidebar-accordion .card-body .btn-group-toggle>.btn {
+    margin: 0 5px 5px 0;
+    display: block;
+    float: left;
+}
+
+#sidebar-accordion #Makes .card-body .btn {
+    width: 47%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#sidebar-accordion #FuelTypes .card-body .btn {
+    width: 47%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#sidebar-accordion #TransmissionTypes .card-body .btn {
+    width: 47%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#sidebar-accordion #Mileage .card-body .btn {
+    text-align: left;
+    width: 96%;
+}
+
+#sidebar-accordion #Years .card-body .btn {
+    width: 31%;
+}
+
+#sidebar-accordion #PriceCategory .card-body .btn {
+    text-align: left;
+    width: 96%;
+}
+
+#sidebar-accordion #Auctions .card-body .btn {
+    text-align: left;
+    width: 96%;
+}
+
+/* ------------------------------- Flags  ----------------------------------- */
+
+.flags {
+    height: 12px;
+    margin-right: 5px;
+    padding-bottom: 2px;
+}
+
+header nav .flags {
+    height: 10px;
+    margin-right: 5px;
+    padding-bottom: 2px;
+}
+
+/* ------------------------------- Current auctions / list ----------------------------------- */
+
+.currentauctions-list {
+    font-size: 15px;
+    line-height: 1.1em;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+/* ------------------------------- Vehicle / search result list ----------------------------------- */
+
+.vehicle-searchresult-list {
+    font-size: 15px;
+    line-height: 1.1em;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.vehicle-searchresult-list h6 {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+/* ------------------------------- Vehicle / search result gallery ----------------------------------- */
+
+.vehicle-searchresult-gallery .card {
+    font-size: 14px;
+    line-height: 1.2em;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease;
+}
+
+.vehicle-searchresult-gallery .card-body h6 {
+    font-weight: bold;
+}
+
+.vehicle-searchresult-gallery .card-body-sub p {
+    margin-bottom: 0;
+}
+
+.vehicle-searchresult-gallery .card-body-sub img {
+    vertical-align: top;
+    margin: 3px 5px 0 0;
+}
+
+.vehicle-searchresult-gallery .card-footer p {
+    margin-bottom: 3px;
+}
+
+.vehicle-searchresult-gallery .card figure {
+    position: relative;
+    margin: 0 0 5px 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    border-top-left-radius: 0.1875em;
+    border-top-right-radius: 0.1875em;
+    height: 140px;
+    background-color: #ccc;
+}
+
+.vehicle-searchresult-gallery .card figure img {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: all 0.2s linear;
+}
+
+.vehicle-searchresult-gallery .card:hover figure img {
+    transform: scale(1.03) translateY(-49%);
+    transition: all 0.2s linear;
+}
+
+@media (max-width: 575.98px) {
+    .vehicle-searchresult-gallery .card figure {
+        height: 200px;
+    }
+}
+
+/* ------------------------------- Favorite icon ----------------------------------- */
+
+.vehicle-searchresult-gallery .favorite {
+    right: 6px;
+}
+
+.vehicle-searchresult-list .favorite {
+    margin-left: -34px;
+}
+
+.favorite {
+    width: 22px;
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    margin-left: -34px;
+    cursor: pointer;
+    -webkit-transition: all 0.1s linear;
+    transition: all 0.1s linear;
+}
+
+.favorite:before {
+    content: "\f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.favorite.checked:before {
+    font-weight: 600;
+    color: #ffc107;
+}
+
+@media (max-width: 991.98px) {
+    .vehicle-searchresult-list .favorite {
+        width: 22px;
+        position: relative;
+        top: 0;
+        float: right;
+        margin-left: 0;
+    }
+
+    .vehicle-searchresult-list .favorite:before {
+        color: #999;
+        font-weight: 300;
+        text-shadow: none;
+    }
+
+    .vehicle-searchresult-list .favorite.checked:before {
+        font-weight: 600;
+        color: #ffc107;
+    }
+}
+
+/* ------------------------------- Dialog ----------------------------------- */
+
+.dialog {
+    line-height: 1.2em;
+}
+
+.dialog li {
+    line-height: 1.6em;
+    margin-bottom: 16px;
+}
+
+/* ------------------------------- CHECKBOX BUTTON ----------------------------------- */
+
+.checkbox-button.active {
+    border: 1px solid #333 !important;
+    background-color: #333 !important;
+    color: #fff !important;
+}
+
+.checkbox-button span {
+    padding-right: 8px;
+}
+
+.checkbox-button span:before {
+    content: "\f0c8";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 300;
+}
+
+.checkbox-button span.checked {
+    padding-right: 8px;
+}
+
+.checkbox-button span.checked:before {
+    content: "\f14a";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 300;
+}
+
+.checkbox-button:disabled {
+    opacity: 0.3;
+    cursor: default;
+}
+
+/* ------------------------------- Animations ----------------------------------- */
+
+.blink {
+    -webkit-animation: fadeOutIn 1s infinite;
+    animation: fadeOutIn 1s infinite;
+}
+
+@-webkit-keyframes fadeOutIn
+
+/* Safari and Chrome */
+    {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.1;
+    }
+}
+
+@keyframes fadeOutIn {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0.1;
+    }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@-webkit-keyframes pulse
+
+/* Safari and Chrome */
+    {
+    0% {
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.96);
+        -o-transform: scale(0.96);
+        transform: scale(0.96);
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -ms-transform: scale(0.96);
+        -moz-transform: scale(0.96);
+        -webkit-transform: scale(0.96);
+        -o-transform: scale(0.96);
+        transform: scale(0.96);
+    }
+
+    100% {
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.refresh {
+    -webkit-animation: refresh 0.3s 1s 3 ease-in-out;
+    animation: refresh 0.3s 1s 3 ease-in-out;
+}
+
+@-webkit-keyframes refresh
+
+/* Safari and Chrome */
+    {
+    50% {
+        background-color: #ffce00;
+    }
+}
+
+@keyframes refresh {
+    50% {
+        background-color: #ffce00;
+    }
+}
+
+/* ------------------------------- Footer ----------------------------------- */
+
+footer p {
+    margin: 0;
+}
+
+footer p img.img-fluid {
+    max-width: 120px;
+}
+
+/* ------------------------------- Branding ----------------------------------- */
+
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    color: #3dadd9;
+    text-decoration: none;
+}
+
+.bg-image-01 {
+    background-image: url("assets/home-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: inset 0px -5px 20px -5px rgba(0, 0, 0, 0.3);
+}
+
+.bg-dark {
+    background-color: #23272b !important;
+}
+
+.bg-primary {
+    background-color: #3dadd9 !important;
+}
+
+.bg-light {
+    background-color: #d9d9d9 !important;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:active:focus,
+.btn-primary:visited {
+    background-color: #3dadd9 !important;
+    border: 1px solid #3dadd9 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.btn-primary:hover {
+    filter: brightness(110%);
+}
+
+.badge-primary {
+    background-color: #3dadd9 !important;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.5);
+}
+
+.btn-light,
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active,
+.btn-light:active:focus,
+.btn-light:visited {
+    background-color: #e2e6ea !important;
+    border: 1px solid #dae0e5 !important;
+}
+
+.btn-light.disabled,
+.btn-light.disabled:hover,
+.btn-light.disabled:focus,
+.btn-light.disabled:active,
+.btn-light.disabled:active:focus,
+.btn-light.disabled:visited {
+    opacity: 0.3 !important;
+}
+
+.btn-link,
+.btn-link:hover,
+.btn-link:focus,
+.btn-link:active,
+.btn-link:active:focus,
+.btn-link:visited {
+    color: #333 !important;
+}
+
+.btn-link:hover {
+    opacity: 0.8 !important;
+}
+
+a.btn-outline-secondary {
+    color: #333;
+}
+
+a.btn-warning {
+    color: #222;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #3dadd9 !important;
+}
+
+.page-item.active .page-link {
+    /* pagination */
+    background-color: #3dadd9;
+}
+
+.card-header .far,
+.card-header .fas,
+.card-header .fad,
+.card-header .fal {
+    color: #3dadd9;
+}
+
+/* ------------------------------- CUSTOM RADIO BUTTONS ----------------------------------- */
+
+.custom-control-input:checked~.custom-control-label::before {
+    background-color: #3dadd9;
+    border-color: #3dadd9;
+}
+
+.custom-control-label::before {
+    transform: scale(2);
+}
+
+.custom-control-label::after {
+    transform: scale(2);
+}
+
+.custom-control-inline {
+    margin-bottom: 1rem;
+}
+
+/* ------------------------------- SELECTPICKERS / Bootstrap Select ----------------------------------- */
+
+.bootstrap-select .btn {
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    background-color: #fff !important;
+}
+
+.bootstrap-select .dropdown-menu {
+    z-index: 8000;
+}
+
+.bootstrap-select .dropdown-menu li a.opt {
+    padding-left: 24px;
+}
+
+.bootstrap-select .dropdown-header {
+    padding-left: 12px;
+}
+
+.bootstrap-select .dropdown-item {
+    white-space: normal;
+    padding-left: 12px;
+}
+
+.bootstrap-select>.dropdown-toggle.bs-placeholder,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active {
+    color: #333;
+    background-color: #fff;
+}
+
+.bootstrap-select.show-tick .dropdown-menu .selected span.check-mark {
+    color: #28a745;
+}
+
+.bootstrap-select .dropdown-item.active,
+.bootstrap-select .dropdown-item:active {
+    color: #000 !important;
+    background-color: #d4edda !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.bootstrap-select.show-tick .dropdown-menu .selected {
+    background-color: #d4edda !important;
+}
+
+/* ------------------------------- NO UI SLIDER ----------------------------------- */
+
+.noUi-target {
+    background: #ddd !important;
+    border: 1px solid #e3e3e3 !important;
+    box-shadow: none !important;
+}
+
+.noUi-connect {
+    background: #fff !important;
+}
+
+.noUi-handle {
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+    width: 2px !important;
+    background: #ddd !important;
+}

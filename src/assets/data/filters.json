@@ -1,0 +1,104 @@
+{
+    "filters": [
+        {
+            "name": "makes",
+            "data": [
+                {
+                    "key": "",
+                    "value": "Any make"
+                },
+                {
+                    "key": "Audi",
+                    "value": "Audi"
+                },
+                {
+                    "key": "BMW",
+                    "value": "BMW"
+                },
+                {
+                    "key": "Citroën",
+                    "value": "Citroën"
+                },
+                {
+                    "key": "Fiat",
+                    "value": "Fiat"
+                },
+                {
+                    "key": "Ford",
+                    "value": "Ford"
+                },
+                {
+                    "key": "Peugeot",
+                    "value": "Peugeot"
+                },
+                {
+                    "key": "VW", 
+                    "value": "VW"
+                }
+            ]
+        },
+        {
+            "name": "fuelTypes",
+            "data": [
+                {
+                    "key": "",
+                    "value": "Any fuel type"
+                },
+                {
+                    "key": "1",
+                    "value": "Petrol"
+                },
+                {
+                    "key": "2",
+                    "value": "Diesel"
+                },
+                {
+                    "key": "3",
+                    "value": "Electric"
+                },
+                {
+                    "key": "4",
+                    "value": "Hybrid"
+                },
+                {
+                    "key": "5",
+                    "value": "Gas"
+                },
+                {
+                    "key": "99",
+                    "value": "No fuel"
+                }
+            ]
+        },
+        {
+            "name": "countries",
+            "data": [
+                {
+                    "key": "",
+                    "value": "Any country"
+                },
+                {
+                    "key": "AT",
+                    "value": "Austria"
+                },
+                {
+                    "key": "BE",
+                    "value": "Belgium"
+                },
+                {
+                    "key": "DK",
+                    "value": "Denmark"
+                },
+                {
+                    "key": "DE",
+                    "value": "Germany"
+                },
+                {
+                    "key": "MX",
+                    "value": "Mexico"
+                }
+            ] 
+        }
+    ],
+    "count": 2997
+}
