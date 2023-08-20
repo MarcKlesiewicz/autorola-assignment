@@ -1,0 +1,16 @@
+<div class="auction-card">
+    <div class="card-header">
+        <img *ngIf="auction?.logo" [src]="auction?.logo" alt="Auction Logo">
+        <h3>{{ auction?.title }}</h3>
+        <ng-container *ngIf="auction">
+            <div class="country-info">
+                <img *ngIf="auction.countryCode" [src]="'assets/flags/' + auction.countryCode + '.gif'" alt="Country Flag">
+                <p>Country Code: {{ auction.countryCode }}</p>
+            </div>
+        </ng-container>
+        
+        <p>Number of Cars: {{ auction?.numberOfCars }}</p>
+        <p>Time Formatted: {{ auction?.timeFormatted }}</p>
+    </div>
+    
+</div>

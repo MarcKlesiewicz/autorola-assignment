@@ -1,0 +1,15 @@
+<div class="text-center"> <!-- Center-align the content -->
+    <div *ngIf="auctionData">
+        <h2>Domestic Auctions</h2>
+        <div class="auction-card-list">
+            <app-auction-card *ngFor="let auction of auctionData.domesticAuctions"
+                [auction]="auction"></app-auction-card>
+        </div>
+
+        <h2>International Auctions</h2>
+        <div class="auction-card-list">
+            <app-auction-card *ngFor="let auction of auctionData.internationalAuctions"
+                [auction]="auction"></app-auction-card>
+        </div>
+    </div>
+</div>

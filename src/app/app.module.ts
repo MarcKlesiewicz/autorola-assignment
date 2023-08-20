@@ -10,12 +10,19 @@ import { MatSelectModule }  from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { AuctionsComponent } from './auctions/auctions.component';
 
+
+import { HttpClientModule } from '@angular/common/http';
+import { HomeAuctionListComponent } from './home-auction-list/home-auction-list.component';
+import { AuctionCardComponent } from './auction-card/auction-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     QuickSearchFilterComponent,
-    AuctionsComponent
+    AuctionsComponent,
+    HomeAuctionListComponent,
+    AuctionCardComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +30,7 @@ import { AuctionsComponent } from './auctions/auctions.component';
     BrowserAnimationsModule,
     MatSelectModule,
     MatButtonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
