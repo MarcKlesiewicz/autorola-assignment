@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import FilterData from '../../assets/data/filters.json';
 import AuctionData from '../../assets/data/auction.json';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'quick-search-filter',
@@ -17,5 +18,11 @@ export class QuickSearchFilterComponent {
 
   articels: any[] = [];
 
+  selectedMakeControl = new FormControl('');
+  selectedFuelTypeControl = new FormControl('');
+  selectedCountryControl = new FormControl('');
 
+  
 }
+
+
