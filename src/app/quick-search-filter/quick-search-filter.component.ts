@@ -14,15 +14,23 @@ export class QuickSearchFilterComponent {
   fuelTypeList = FilterData.filters[1].data.map(fuel => fuel.value).slice(1);
   countryList = FilterData.filters[2].data.map(country => country.value).slice(1);
 
-  allArticels = AuctionData.articles;
+  allArticles = AuctionData.articles;
 
-  articels: any[] = [];
+  articles: any[] = [];
 
   selectedMakeControl = new FormControl('');
   selectedFuelTypeControl = new FormControl('');
   selectedCountryControl = new FormControl('');
 
+  onMakeSelectionChange(event: any) {
+  this.selectedMakeControl.setValue(event.value);
+  const selectedMakes: string[] = event.value;
   
+  this.articles = this.allArticles.filter(article => {
+      const articleHeadline = article.headline.toLowerCase();
+      return selectedMakes.some(make => articleHeadline.includes(make.toLowerCase()));
+  });
+}
 
   
 }

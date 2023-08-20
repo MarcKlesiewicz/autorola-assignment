@@ -4,7 +4,7 @@
     <div class="filter-row">
     <mat-form-field class="filter-item">
         <mat-label>{{selectedMakeControl.value?.length === 0 ? 'Any make' : 'Selected makes'}}</mat-label>
-        <mat-select multiple [formControl]="selectedMakeControl" >
+        <mat-select multiple [formControl]="selectedMakeControl" (selectionChange)="onMakeSelectionChange($event)">
             <mat-option *ngFor="let make of makesList" [value]="make">{{make}}</mat-option>
         </mat-select>
     </mat-form-field>
@@ -24,5 +24,5 @@
     </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" [routerLink]="['/auctions']">Show {{articels.length}}</button>
+    <button mat-raised-button color="primary" [routerLink]="['/auctions']">Show {{articles.length}}</button>
 </body>
