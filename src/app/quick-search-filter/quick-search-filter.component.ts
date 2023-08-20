@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import FilterData from '../../assets/data/filters.json';
 import AuctionData from '../../assets/data/auction.json';
 import { FormControl } from '@angular/forms';
@@ -8,13 +8,19 @@ import { FormControl } from '@angular/forms';
   templateUrl: './quick-search-filter.component.html',
   styleUrls: ['./quick-search-filter.component.css']
 })
-export class QuickSearchFilterComponent {
+export class QuickSearchFilterComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.updateQuickSearchTotal();
+  }
 
   makesList = FilterData.filters[0].data.map(make => make.value).slice(1);
   fuelTypeList = FilterData.filters[1].data.map(fuel => fuel.value).slice(1);
   countryList = FilterData.filters[2].data.map(country => country.value).slice(1);
-
+  
   allArticles = AuctionData.articles;
+ 
+  quickSearchTotal: string = '';
 
   articles: any[] = [];
 
@@ -30,6 +36,7 @@ export class QuickSearchFilterComponent {
       const articleHeadline = article.headline.toLowerCase();
       return selectedMakes.some(make => articleHeadline.includes(make.toLowerCase()));
   });
+  this.updateQuickSearchTotal();
   }
 
   onFuelSelectionChange(event: any) {
@@ -40,17 +47,26 @@ export class QuickSearchFilterComponent {
       const articleHeadline = article.details.toLowerCase();
       return selectedFuelTypes.some(fuelType => articleHeadline.includes(fuelType.toLowerCase()));
     });
+    this.updateQuickSearchTotal();
   }
 
   onCountrySelectionChange(event: any) {
     this.selectedCountryControl.setValue(event.value);
-  const selectedCountry: string[] = event.value;
-  
-  this.articles = this.allArticles.filter(article => {
-    const articleHeadline = article.countryCode.toLowerCase();
-    return selectedCountry.some(fuelType => articleHeadline.includes(fuelType.toLowerCase()));
-  });
-  
-}
+    const selectedCountry: string[] = event.value;
+    
+    this.articles = this.allArticles.filter(article => {
+      const articleHeadline = article.countryCode.toLowerCase();
+      return selectedCountry.some(fuelType => articleHeadline.includes(fuelType.toLowerCase()));
+    });
+    this.updateQuickSearchTotal();
+  }
+
+  updateQuickSearchTotal(){
+  if(this.selectedMakeControl.value?.length !== 0 || this.selectedFuelTypeControl.value?.length !== 0 || this.selectedCountryControl.value?.length !== 0){
+    this.quickSearchTotal = this.articles.length.toString();
+  }else{
+    this.quickSearchTotal = this.allArticles.length.toString();
+  }
+  }
 
 }
