@@ -1,11 +1,25 @@
 <body>
-    <h1>Used vehecels that fit your dealership</h1>
+    <h1>Used vehicels that fit your dealership</h1>
 
     <div class="filter-row">
     <mat-form-field class="filter-item">
         <mat-label>{{selectedMakeControl.value?.length === 0 ? 'Any make' : 'Selected makes'}}</mat-label>
         <mat-select multiple [formControl]="selectedMakeControl" >
             <mat-option *ngFor="let make of makesList" [value]="make">{{make}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-item">
+        <mat-label>{{selectedFuelTypeControl.value?.length === 0 ? 'Any fuel type' : 'Selected fuel types'}}</mat-label>
+        <mat-select multiple [formControl]="selectedFuelTypeControl" >
+            <mat-option *ngFor="let fuel of fuelTypeList" [value]="fuel">{{fuel}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="filter-item">
+        <mat-label>{{selectedCountryControl.value?.length === 0 ? 'Any country' : 'Selected counties'}}</mat-label>
+        <mat-select multiple [formControl]="selectedCountryControl" >
+            <mat-option *ngFor="let country of countryList" [value]="country">{{country}}</mat-option>
         </mat-select>
     </mat-form-field>
     </div>
