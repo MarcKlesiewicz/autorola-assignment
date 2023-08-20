@@ -30,6 +30,6 @@
         </mat-form-field>
     </div>
 
-    <button mat-raised-button color="primary" [routerLink]="['/auctions']">Show {{quickSearchTotal}}</button>
+    <button mat-raised-button color="primary" [routerLink]="['/auctions', {makes: selectedMakeControl.value !== null ? selectedMakeControl.value : 'any', fuelTypes: selectedFuelTypeControl.value !== null ? selectedFuelTypeControl.value : 'any', countries: selectedCountryControl.value !== null ? selectedCountryControl.value : 'any', } ]">Show {{quickSearchTotal}}</button>
 
 </div>
