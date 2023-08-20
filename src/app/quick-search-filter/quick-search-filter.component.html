@@ -11,14 +11,14 @@
 
     <mat-form-field class="filter-item">
         <mat-label>{{selectedFuelTypeControl.value?.length === 0 ? 'Any fuel type' : 'Selected fuel types'}}</mat-label>
-        <mat-select multiple [formControl]="selectedFuelTypeControl" >
+        <mat-select multiple [formControl]="selectedFuelTypeControl" (selectionChange)="onFuelSelectionChange($event)">
             <mat-option *ngFor="let fuel of fuelTypeList" [value]="fuel">{{fuel}}</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field class="filter-item">
         <mat-label>{{selectedCountryControl.value?.length === 0 ? 'Any country' : 'Selected counties'}}</mat-label>
-        <mat-select multiple [formControl]="selectedCountryControl" >
+        <mat-select multiple [formControl]="selectedCountryControl" (selectionChange)="onCountrySelectionChange($event)">
             <mat-option *ngFor="let country of countryList" [value]="country">{{country}}</mat-option>
         </mat-select>
     </mat-form-field>

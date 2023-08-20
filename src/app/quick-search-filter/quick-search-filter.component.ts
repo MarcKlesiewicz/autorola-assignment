@@ -30,9 +30,27 @@ export class QuickSearchFilterComponent {
       const articleHeadline = article.headline.toLowerCase();
       return selectedMakes.some(make => articleHeadline.includes(make.toLowerCase()));
   });
-}
+  }
 
+  onFuelSelectionChange(event: any) {
+  this.selectedFuelTypeControl.setValue(event.value);
+  const selectedFuelTypes: string[] = event.value;
+  
+  this.articles = this.allArticles.filter(article => {
+      const articleHeadline = article.details.toLowerCase();
+      return selectedFuelTypes.some(fuelType => articleHeadline.includes(fuelType.toLowerCase()));
+    });
+  }
+
+  onCountrySelectionChange(event: any) {
+    this.selectedCountryControl.setValue(event.value);
+  const selectedCountry: string[] = event.value;
+  
+  this.articles = this.allArticles.filter(article => {
+    const articleHeadline = article.countryCode.toLowerCase();
+    return selectedCountry.some(fuelType => articleHeadline.includes(fuelType.toLowerCase()));
+  });
   
 }
 
-
+}
